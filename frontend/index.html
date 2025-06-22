@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUGUAGE - AI-Powered Skill Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-brain nav-icon"></i>
+                <span class="nav-title">EDUGUAGE</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <button class="btn-signin">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Assessment Form Section -->
+        <section id="assessment-section" class="section active">
+            <div class="hero-section">
+                <h1 class="hero-title">AI-Powered Skill Assessment</h1>
+                <p class="hero-description">
+                    Evaluate your proficiency and get personalized learning recommendations
+                    powered by advanced AI technology.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Assessment</h3>
+                    <p class="feature-description">AI-driven evaluation with intelligent question generation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Detailed Analytics</h3>
+                    <p class="feature-description">Comprehensive skill breakdown and progress tracking</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Learning Paths</h3>
+                    <p class="feature-description">Personalized recommendations based on your assessment</p>
+                </div>
+            </div>
+
+            <div class="assessment-form-container">
+                <div class="form-card">
+                    <h2 class="form-title">Select Your Skills</h2>
+                    
+                    <div class="custom-skill-section">
+                        <label class="form-label">Add Custom Skill</label>
+                        <div class="input-group">
+                            <input type="text" id="custom-skill-input" class="form-input" placeholder="Enter a skill...">
+                            <button id="add-skill-btn" class="btn-add">
+                                <i class="fas fa-plus"></i>
+                                Add
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="suggested-skills-section">
+                        <label class="form-label">Suggested Skills</label>
+                        <div id="suggested-skills" class="skills-grid"></div>
+                    </div>
+
+                    <div class="selected-skills-section">
+                        <label class="form-label">Selected Skills</label>
+                        <div id="selected-skills" class="skills-grid"></div>
+                    </div>
+
+                    <button id="start-assessment-btn" class="btn-primary" disabled>
+                        Start Assessment
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Questions Section -->
+        <section id="questions-section" class="section">
+            <div class="question-container">
+                <div class="question-card">
+                    <div class="question-header">
+                        <div class="question-info">
+                            <span id="question-counter" class="question-counter">Question 1 of 10</span>
+                            <span id="current-skill" class="current-skill">JavaScript</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <h2 id="question-text" class="question-text">Loading question...</h2>
+
+                    <div id="thinking-state" class="thinking-state hidden">
+                        <i class="fas fa-brain thinking-icon"></i>
+                        <span>Analyzing your response...</span>
+                    </div>
+
+                    <div id="question-options" class="question-options"></div>
+
+                    <div class="question-navigation">
+                        <button id="prev-btn" class="btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button id="next-btn" class="btn-primary" disabled>
+                            Next
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="section">
+            <div id="loading-results" class="loading-container">
+                <i class="fas fa-brain loading-icon"></i>
+                <p class="loading-text">Analyzing your assessment results...</p>
+            </div>
+
+            <div id="results-content" class="results-content hidden">
+                <div class="results-header">
+                    <div class="results-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h2 class="results-title">Assessment Complete!</h2>
+                    <p id="overall-score" class="overall-score">Overall Proficiency: 0%</p>
+                </div>
+
+                <div id="skill-assessments" class="skill-assessments"></div>
+
+                <div class="download-section">
+                    <button class="btn-primary" onclick="window.print()">
+                        <i class="fas fa-download"></i>
+                        Download Report
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <i class="fas fa-brain"></i>
+                    <span class="footer-title">EDUGUAGE</span>
+                </div>
+                <p class="footer-description">
+                    Empowering learners with AI-driven skill assessment and personalized learning paths.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-heading">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Documentation</a></li>
+                    <li><a href="#" class="footer-link">API Reference</a></li>
+                    <li><a href="#" class="footer-link">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-heading">Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
